@@ -1,23 +1,28 @@
 db = list()
 [db.append(str(i)) for i in range(0, 10)]
 
-T = 100
-N = 1
-test_list = []
-counter = 0
+fd = open("c-input.in", "r")
 
-for test in range(1, T+1):
-    counter = test
-    number = N * test
-    num_list = (list(str(number)))
-    test_list += num_list
-    a = [ii for n, ii in enumerate(test_list) if ii not in test_list[:n]]
-    last = a[-1]
-    a.sort()
-    if db == a:
-        print("Case #{} : {}".format(test, last))
-        break
+input_lines = fd.readlines()
+cases = int(input_lines[0])
+input_lines.pop(0)
 
-if counter >= 100:
-    print("INSMONIA")
+for data in input_lines:
+    test_list = []
+    a = []
+    for test in range(1, cases+1):
+        counter = test
+        number = int(data) * test
+        num_list = (list(str(number)))
+        test_list += num_list
+        a = [ii for n, ii in enumerate(test_list) if ii not in test_list[:n]]
+        last = a[-1]
+        a.sort()
+        if db == a:
+            print("Case #{} : {}".format(test, last))
+            break
 
+    if counter >= cases:
+        print("INSMONIA")
+
+fd.close()
