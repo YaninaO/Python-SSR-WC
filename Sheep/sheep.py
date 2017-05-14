@@ -1,31 +1,28 @@
-from utils import del_repeated_elem, generate_list
+__author__ = "Yanina Ortiz"
+__email__ = "yaninaandreaortiz@gmail.com"
+__version__ = "1.0.0"
 
 
-class InputParser(object):
-    def __init__(self, path_file):
-        self.fd = open(path_file, "r")
-        self.input_lines = []
-        self.cases = int()
+from utils import del_repeated_elem, generate_list, InputParser
 
-    def get_txt_file_info(self):
-        self.input_lines = self.fd.readlines()
-        self.cases = int(self.input_lines[0])
-        self.input_lines.pop(0)
-        return self.cases, self.input_lines
 
-    def close_file(self):
-        self.fd.close()
+class Sheep(object):
+    def __init__(self):
+        pass
 
-if __name__ == '__main__':
-    file_hnd = InputParser("c-input.in")
-    cases, data_set = file_hnd.get_txt_file_info()
-    db = generate_list(10)
-
-    for data in data_set:
+    def fall_asleep(self, cases):
+        """
+        It determinates if the result of a count is
+        sleep or insomnia
+        :param cases: Max limit to coune
+        :type: int
+        :return: A msg whit the last number registered or insmonia
+        :rtype: str()
+        """
         test_list = []
-        a = []
-        for test in range(1, cases+1):
-            counter = test
+        clean_list = []
+        msg = str()
+        for test in range(1, cases + 1):
             number = int(data) * test
             num_list = (list(str(number)))
             test_list += num_list
@@ -33,13 +30,26 @@ if __name__ == '__main__':
             last_element = clean_list[-1]
             clean_list.sort()
             if db == clean_list:
-                print("Case #{} : {}".format(test, last_element))
+                msg = "Case #{} : {}".format(test, last_element)
                 break
-
-        if counter >= cases:
-            print("INSMONIA")
-
-
+            elif test == cases:
+                msg = "INSMONIA"
+        return msg
 
 
-fd.close()
+if __name__ == '__main__':
+    try:
+        file_hnd = InputParser("c-input.in")
+        cases, data_set = file_hnd.get_txt_file_info()
+        file_hnd.close_file()
+        db = generate_list(10)
+        sheep = Sheep()
+        for data in data_set:
+            result = sheep.fall_asleep(cases)
+            print(result)
+    except IndexError:
+        print("Input file is not long enought")
+    except IOError:
+        print("Input file is invalid or doesnot exist")
+    except Exception as e:
+        print("Unkwnoun error:{}".format(e))
