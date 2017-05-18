@@ -13,7 +13,7 @@ Entradas necesarias:
 
 Se ejecuta a través de la consola utilizando el siguiente comando:
 
-python sheep.py
+python3 sheep.py
 
 --
 DETALLES DEL DISEÑO

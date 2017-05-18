@@ -12,7 +12,7 @@ Entradas necesarios:
 
 Se ejecuta a través de la consola utilizando el siguiente comando:
 
-python campaigns_classificator.py
+python3 campaigns_classificator.py
 
 --
 DETALLES DEL DISEÑO

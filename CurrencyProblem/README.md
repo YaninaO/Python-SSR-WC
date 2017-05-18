@@ -14,7 +14,7 @@ Salidas esperadas:
 
 Se ejecuta a través de la consola utilizando el siguiente comando:
 
-python currency.py
+python3 currency.py
 
 --
 DETALLES DEL DISEÑO
