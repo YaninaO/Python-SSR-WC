@@ -14,7 +14,7 @@ class Sheep(object):
         """
         It determinates if the result of a count is
         sleep or insomnia
-        :param cases: Max limit to coune
+        :param cases: Max limit to count
         :type: int
         :return: A msg whit the last number registered or insmonia
         :rtype: str()
